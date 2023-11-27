@@ -1,7 +1,7 @@
 import "dotenv/config";
 import chalk from "chalk";
 import express from "express";
-import "./server/index.js";
+import "./index.js";
 import debugCreator from "debug";
 
 const debug = debugCreator(":plants:src:index");

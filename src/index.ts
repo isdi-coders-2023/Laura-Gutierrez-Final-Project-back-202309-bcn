@@ -1,6 +1,6 @@
 import chalk from "chalk";
-import { startServer } from "./server/app";
-import { connectToDatabase } from "./database";
+import { startServer } from "./server/app.js";
+import { connectToDatabase } from "./database/index.js";
 import "./server/index.js";
 import debugCreator from "debug";
 
