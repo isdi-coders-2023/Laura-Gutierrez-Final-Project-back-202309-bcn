@@ -4,7 +4,7 @@ import express from "express";
 import "./index.js";
 import debugCreator from "debug";
 
-const debug = debugCreator(":plants:src:index");
+const debug = debugCreator(":root:src:index");
 
 const app = express();
 

@@ -4,7 +4,7 @@ import { connectToDatabase } from "./database/index.js";
 import "./server/index.js";
 import debugCreator from "debug";
 
-const debug = debugCreator(":plants:src:index");
+const debug = debugCreator(":root:src:index");
 
 const port = process.env.PORT ?? 4000;
 if (!process.env.MONGODB_URL) {

@@ -3,7 +3,7 @@ import chalk from "chalk";
 import mongoose from "mongoose";
 import debugCreator from "debug";
 
-const debug = debugCreator(":plants:src:index");
+const debug = debugCreator(":root:src:index");
 
 export const connectToDatabase = async (mongoUrl: string) => {
   try {
