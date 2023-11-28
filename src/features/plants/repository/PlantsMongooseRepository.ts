@@ -3,7 +3,7 @@ import Plant from "../model/Plant";
 
 class PlantsMongooseRepository implements PlantsRepository {
   public async getPlants(): Promise<PlantStructure[]> {
-    const plants = await Plant.find();
+    const plants = await Plant.find().limit(10);
 
     return plants;
   }

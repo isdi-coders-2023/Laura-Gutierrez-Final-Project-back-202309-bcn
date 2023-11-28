@@ -22,7 +22,7 @@ const plantSchema = new Schema<PlantStructure>({
     type: String,
     required: true,
   },
-  imageURL: {
+  imageUrl: {
     type: String,
     required: true,
   },
