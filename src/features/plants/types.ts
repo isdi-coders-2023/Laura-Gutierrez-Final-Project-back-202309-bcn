@@ -6,13 +6,13 @@ export interface PlantData {
   use: string;
   properties: string;
   howToUse: string;
-  imageURL: string;
+  imageUrl: string;
   isPoisonous: boolean;
   habitat: string;
 }
 
 export interface PlantStructure extends PlantData {
-  _id: Types.ObjectId;
+  _id: string;
 }
 
 export interface PlantsRepository {

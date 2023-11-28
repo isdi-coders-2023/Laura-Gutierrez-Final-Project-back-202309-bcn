@@ -10,3 +10,5 @@ class PlantsController {
     res.status(200).json({ plants });
   };
 }
+
+export default PlantsController;
