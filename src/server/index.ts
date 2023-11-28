@@ -4,6 +4,9 @@ import app from "./app.js";
 import cors from "cors";
 import morgan from "morgan";
 import { pingRouter } from "../features/ping/router/pingRouter.js";
+import generalError, {
+  notFoundError,
+} from "./middlewares/errors/errorMiddleware.js";
 
 app.use(morgan("dev"));
 app.use(express.json());
@@ -13,3 +16,5 @@ const corsOption = { origin: corsPort };
 
 app.use(cors(corsOption));
 app.use("/", pingRouter);
+app.use(notFoundError);
+app.use(generalError);
