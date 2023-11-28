@@ -1,5 +1,5 @@
 {
-  "name": "express-ts-jest-template",
+  "name": "herbolarium",
   "version": "1.0.0",
   "description": "Herbolarium - back-end repository",
   "type": "module",
@@ -9,8 +9,8 @@
     "build": "tsc",
     "start": "node .",
     "start:dev": "node --watch .",
-    "test": "jest --passWithNoTests",
-    "test:coverage": "jest --coverage --passWithNoTests",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "prepare": "husky install"
   },
   "keywords": [],
