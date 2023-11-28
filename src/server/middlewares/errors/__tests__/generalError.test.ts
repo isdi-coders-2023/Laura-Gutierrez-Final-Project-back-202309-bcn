@@ -1,4 +1,4 @@
-import CustomError from "../../../customError/CustomError";
+import CustomError from "../../../CustomError/CustomError";
 import generalError from "../errorMiddleware";
 import type { NextFunction, Request, Response } from "express";
 

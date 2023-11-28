@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import CustomError from "../../../customError/CustomError";
+import CustomError from "../../../CustomError/CustomError";
 import { notFoundError } from "../errorMiddleware";
 
 describe("Given a notFoundError function", () => {
@@ -13,7 +13,6 @@ describe("Given a notFoundError function", () => {
         "Endpoint not found",
         404,
         "errorMiddlewWare:notFound",
-        "testPrivateMessage",
       );
 
       notFoundError(req as Request, res as Response, next);
