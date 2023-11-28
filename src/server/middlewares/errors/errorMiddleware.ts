@@ -1,7 +1,9 @@
 import type { Request, Response, NextFunction } from "express";
-import CustomError from "../../customError/CustomError";
+import CustomError from "../../CustomError/CustomError";
 import chalk from "chalk";
 import debugCreator from "debug";
+
+const debug = debugCreator("root:src:server:middlewares:error");
 
 export const notFoundError = (
   _req: Request,
@@ -23,13 +25,11 @@ const generalError = (
   res: Response,
   _next: NextFunction,
 ) => {
-  if (error.privateMessage) {
-    const debug = debugCreator(`${error.nameSpace ?? "root:errorMiddleWare"}`);
-    debug(chalk.red(`error: ${error.privateMessage}`));
-  }
-
   const statusCode = error.statusCode ?? 500;
-  res.status(statusCode).json({ message: error.message });
+  const privateMessage = error.customMessage ?? error.message;
+  debug(chalk.bgRedBright("Error:", privateMessage));
+
+  res.status(statusCode).json({ message: privateMessage });
 };
 
 export default generalError;
