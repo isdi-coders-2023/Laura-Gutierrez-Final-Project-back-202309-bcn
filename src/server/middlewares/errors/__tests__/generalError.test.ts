@@ -31,4 +31,26 @@ describe("Given a generalError middleware", () => {
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
   });
+  describe("When it receives a response with an error message 'Error'", () => {
+    test("Then it should call the response method json with a 'General error' message", () => {
+      const expectedStatusCode = 400;
+      const errorMessage = "General error";
+      const error = new CustomError(errorMessage, expectedStatusCode);
+
+      generalError(
+        error,
+        req as Request,
+        res as Response,
+        next as NextFunction,
+      );
+
+      const errorResponseBody = {
+        message: errorMessage,
+      };
+
+      expect(res.json).toHaveBeenCalledWith(
+        expect.objectContaining(errorResponseBody),
+      );
+    });
+  });
 });
