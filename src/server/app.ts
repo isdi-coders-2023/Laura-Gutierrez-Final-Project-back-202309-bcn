@@ -1,13 +1,10 @@
 import "dotenv/config";
 import chalk from "chalk";
 import express from "express";
-import "./index.js";
 import debugCreator from "debug";
 
-const debug = debugCreator(":root:src:index");
-
+const debug = debugCreator("root:server:app");
 const app = express();
-
 app.disable("x-powered-by");
 
 export const startServer = (port: number) => {
