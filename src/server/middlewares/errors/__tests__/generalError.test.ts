@@ -53,4 +53,20 @@ describe("Given a generalError middleware", () => {
       );
     });
   });
+  describe("When it receives a response and an error with a 500 status code", () => {
+    test("Then it should call the response method with a 500 status code", () => {
+      const expectedStatusCode = 500;
+      const errorMessage = "There's been an error with the status code.";
+      const error = new Error(errorMessage);
+
+      generalError(
+        error as CustomError,
+        req as Request,
+        res as Response,
+        next as NextFunction,
+      );
+
+      expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
+    });
+  });
 });
