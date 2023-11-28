@@ -1,5 +1,3 @@
-import { type Types } from "mongoose";
-
 export interface PlantData {
   name: string;
   scientificName: string;
