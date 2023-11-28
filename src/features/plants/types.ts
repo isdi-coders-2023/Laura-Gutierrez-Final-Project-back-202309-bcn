@@ -14,3 +14,7 @@ export interface PlantData {
 export interface PlantStructure extends PlantData {
   _id: Types.ObjectId;
 }
+
+export interface PlantsRepository {
+  getPlants: () => Promise<PlantStructure[]>;
+}
