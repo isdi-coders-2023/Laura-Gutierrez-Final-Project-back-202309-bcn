@@ -2,7 +2,7 @@ import type { Request, Response, NextFunction } from "express";
 import CustomError from "../../../customError/CustomError";
 import { notFoundError } from "../errorMiddleware";
 
-describe("Given a notFound function", () => {
+describe("Given a notFoundError function", () => {
   describe("When it receives a NextFunction", () => {
     test("Then it should call the next function with a customError", () => {
       const req = {};
