@@ -7,6 +7,7 @@ import { pingRouter } from "../features/ping/router/pingRouter.js";
 import generalError, {
   notFoundError,
 } from "./middlewares/errors/errorMiddleware.js";
+import plantsRouter from "../features/plants/router/plantsRouter.js";
 
 app.use(morgan("dev"));
 app.use(express.json());
@@ -16,5 +17,6 @@ const corsOption = { origin: corsPort };
 
 app.use(cors(corsOption));
 app.use("/", pingRouter);
+app.use("/plants", plantsRouter);
 app.use(notFoundError);
 app.use(generalError);
