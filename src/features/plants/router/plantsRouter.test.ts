@@ -1,5 +1,4 @@
 import request from "supertest";
-import "../../../index.js";
 import app from "../../../server/app";
 import { plantsMock } from "../mocks/plantsMock";
 import { type PlantStructure } from "../types";
