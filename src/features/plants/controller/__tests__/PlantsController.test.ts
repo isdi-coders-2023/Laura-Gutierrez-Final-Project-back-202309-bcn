@@ -1,7 +1,7 @@
 import { type Request, type Response } from "express";
-import { plantsMock } from "../../mocks/plantsMock.js";
+import { plantsMock } from "../../mocks/plantsMock";
 import { type PlantsRepository } from "../../repository/types";
-import PlantsController from "../PlantsController.js";
+import PlantsController from "../PlantsController";
 import { type PlantData } from "../../types";
 
 beforeEach(() => {
