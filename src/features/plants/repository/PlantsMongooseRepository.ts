@@ -1,5 +1,5 @@
 import { type PlantsRepository, type PlantStructure } from "../types";
-import Plant from "../model/Plant";
+import Plant from "../model/Plant.js";
 
 class PlantsMongooseRepository implements PlantsRepository {
   public async getPlants(): Promise<PlantStructure[]> {
