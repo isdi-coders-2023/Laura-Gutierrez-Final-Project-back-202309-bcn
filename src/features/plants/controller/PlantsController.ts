@@ -1,8 +1,8 @@
 import { type Request, type Response } from "express";
-import type PlantsMongooseRepository from "../repository/PlantsMongooseRepository";
+import { type PlantsRepository } from "../repository/types";
 
 class PlantsController {
-  constructor(private readonly plantsRepository: PlantsMongooseRepository) {}
+  constructor(private readonly plantsRepository: PlantsRepository) {}
 
   public getPlants = async (_req: Request, res: Response): Promise<void> => {
     const plants = await this.plantsRepository.getPlants();
