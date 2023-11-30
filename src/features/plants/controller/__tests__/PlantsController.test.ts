@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
 import { plantsMock } from "../../mocks/plantsMock";
-import { type PlantsRepository } from "../../types";
+import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
 import { type PlantData } from "../../types";
 

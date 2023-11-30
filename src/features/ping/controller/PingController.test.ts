@@ -1,4 +1,4 @@
-import PingController from "./pingController.js";
+import PingController from "./PingController";
 import { type Request, type Response } from "express";
 
 describe("Given a PingController's getPong method", () => {

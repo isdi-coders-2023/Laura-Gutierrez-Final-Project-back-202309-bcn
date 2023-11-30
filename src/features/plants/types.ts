@@ -12,7 +12,3 @@ export interface PlantData {
 export interface PlantStructure extends PlantData {
   _id: string;
 }
-
-export interface PlantsRepository {
-  getPlants: () => Promise<PlantStructure[]>;
-}
