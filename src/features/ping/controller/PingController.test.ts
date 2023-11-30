@@ -21,7 +21,7 @@ describe("Given a PingController's getPong method", () => {
     });
 
     test("Then it should call its method status with 200", () => {
-      const expectedMessage = { message: "🏓👌" };
+      const expectedMessage = { message: "🏓" };
 
       pingController.getPong(req as Request, res as Response);
 
