@@ -1,3 +1,5 @@
+import { type Types } from "mongoose";
+
 export interface PlantData {
   name: string;
   scientificName: string;
@@ -10,5 +12,5 @@ export interface PlantData {
 }
 
 export interface PlantStructure extends PlantData {
-  _id: string;
+  _id: Types.ObjectId;
 }

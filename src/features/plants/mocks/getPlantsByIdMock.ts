@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import { type PlantStructure } from "../types";
 
-export const plantsMock: PlantStructure[] = [
+export const plantsMockById: PlantStructure[] = [
   {
     _id: new Types.ObjectId("6566158cd11a3f8f1075c7a1"),
     name: "Oregano",

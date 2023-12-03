@@ -2,7 +2,7 @@ import { type Request, type Response } from "express";
 import { plantsMock } from "../../mocks/plantsMock";
 import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
-import { type PlantData } from "../../types";
+import { PlantStructure, type PlantData } from "../../types";
 
 beforeEach(() => {
   jest.restoreAllMocks();
@@ -13,7 +13,9 @@ describe("Given a PlantsController's getPlants method", () => {
 
   const plantsRepository: PlantsRepository = {
     getPlants: jest.fn().mockResolvedValue(plants),
+    getPlantsById: jest.fn().mockResolvedValue(plants[0]),
   };
+
   const plantsController = new PlantsController(plantsRepository);
 
   describe("When it receives a request", () => {
