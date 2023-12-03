@@ -8,6 +8,16 @@ class PlantsMongooseRepository implements PlantsRepository {
 
     return plants;
   }
+
+  public async getPlantsById(id: string): Promise<PlantStructure> {
+    const plant = await Plant.findById(id);
+
+    if (!plant) {
+      throw new Error("Sorry, cannot find this plant.");
+    }
+
+    return plant;
+  }
 }
 
 export default PlantsMongooseRepository;
