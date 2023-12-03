@@ -4,7 +4,6 @@ import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
 import { type PlantData } from "../../types";
 import Plant from "../../model/Plant";
-import CustomError from "../../../../server/CustomError/CustomError";
 
 beforeEach(() => {
   jest.clearAllMocks();
