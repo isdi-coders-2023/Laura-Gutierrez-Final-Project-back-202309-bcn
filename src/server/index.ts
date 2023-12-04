@@ -9,20 +9,17 @@ import generalError, {
 } from "./middlewares/errors/errorMiddleware.js";
 import plantsRouter from "../features/plants/router/plantsRouter.js";
 
-app.use(morgan("dev"));
-app.use(express.json());
-
 const corsOrigin = [
   process.env.ALLOWED_ORIGIN!,
   process.env.ALLOWED_ORIGIN_DEV!,
 ];
 const corsOptions: cors.CorsOptions = { origin: corsOrigin };
 
+app.use(morgan("dev"));
 app.use(cors(corsOptions));
-
-app.use("/", pingRouter);
+app.use(express.json());
 
 app.use("/plants", plantsRouter);
-
+app.use("/", pingRouter);
 app.use(notFoundError);
 app.use(generalError);
