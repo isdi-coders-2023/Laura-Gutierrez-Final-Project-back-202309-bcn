@@ -11,7 +11,7 @@ import plantsRouter from "../features/plants/router/plantsRouter.js";
 
 const corsOrigin = [
   process.env.ALLOWED_ORIGIN!,
-  process.env.ALLOWED_ORIGIN_DEV!,
+  process.env.ALLOWED_ORIGIN_PROD!,
 ];
 const corsOptions: cors.CorsOptions = { origin: corsOrigin };
 
