@@ -12,11 +12,16 @@ import plantsRouter from "../features/plants/router/plantsRouter.js";
 app.use(morgan("dev"));
 app.use(express.json());
 
-const corsOrigin = process.env.ALLOWED_ORIGIN;
-const corsOption = { origin: corsOrigin };
-app.use(cors(corsOption));
+const corsOrigin = [
+  process.env.ALLOWED_ORIGIN!,
+  process.env.ALLOWED_ORIGIN_DEV!,
+];
+const corsOptions: cors.CorsOptions = { origin: corsOrigin };
+
+app.use(cors(corsOptions));
 
 app.use("/", pingRouter);
+
 app.use("/plants", plantsRouter);
 
 app.use(notFoundError);
