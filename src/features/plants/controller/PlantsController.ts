@@ -10,6 +10,25 @@ class PlantsController {
     res.status(200).json({ plants });
   };
 
+  deletePlant = async (
+    req: Request<{ plantId: string }>,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    const { plantId } = req.params;
+    try {
+      await this.plantsRepository.deletePlant(plantId);
+
+      res.status(200).json({});
+    } catch {
+      const error = new CustomError(
+        "There's been an error deleting this plant.",
+        400,
+      );
+      next(error);
+    }
+  };
+
   public getPlantsById = async (
     req: Request<{ id: string }>,
     res: Response,
@@ -21,7 +40,7 @@ class PlantsController {
 
       res.status(200).json(plant);
     } catch {
-      const plantError = new CustomError("Sorrt, cannot find this plant.", 404);
+      const plantError = new CustomError("Sorry, cannot find this plant.", 404);
 
       next(plantError);
     }

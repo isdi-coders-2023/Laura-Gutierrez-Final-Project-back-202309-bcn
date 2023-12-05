@@ -13,6 +13,7 @@ describe("Given a PlantsController's getPlants method", () => {
 
   const plantsRepository: PlantsRepository = {
     getPlants: jest.fn().mockResolvedValue(plants),
+    deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockResolvedValue(plants[0]),
   };
 

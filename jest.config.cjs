@@ -10,5 +10,6 @@ module.exports = {
     "!src/index.ts",
     "!src/server/app.ts",
     "!src/database/index.ts",
+    "src/setupTest.ts",
   ],
 };
