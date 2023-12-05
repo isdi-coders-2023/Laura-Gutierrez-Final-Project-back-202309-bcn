@@ -1,6 +1,7 @@
 import { type PlantStructure } from "../types";
 import Plant from "../model/Plant.js";
 import { type PlantsRepository } from "./types";
+import CustomError from "../../../server/CustomError/CustomError";
 
 class PlantsMongooseRepository implements PlantsRepository {
   public async getPlants(): Promise<PlantStructure[]> {
@@ -23,7 +24,7 @@ class PlantsMongooseRepository implements PlantsRepository {
     const plant = await Plant.findById(id);
 
     if (!plant) {
-      throw new Error("Sorry, cannot find this plant.");
+      throw new CustomError("Sorry, cannot find this plant.", 404);
     }
 
     return plant;

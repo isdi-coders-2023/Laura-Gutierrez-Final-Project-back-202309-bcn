@@ -30,8 +30,8 @@ describe("Given a getPlantsById controller", () => {
 
     const next = jest.fn();
 
-    test("Then it should call the next function with the error message 'Sorry, cannot get this plant.' ", async () => {
-      const expectedError = "Sorry, cannot get this plant.";
+    test("Then it should call the next function with the error message 'Sorry, cannot find this plant.' ", async () => {
+      const expectedError = "Sorry, cannot find this plant.";
       const expectedStatusCode = 404;
 
       Plant.findById = jest
