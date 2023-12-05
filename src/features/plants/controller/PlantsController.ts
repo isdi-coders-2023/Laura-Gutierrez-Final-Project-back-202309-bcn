@@ -40,7 +40,7 @@ class PlantsController {
 
       res.status(200).json(plant);
     } catch {
-      const plantError = new CustomError("Sorrt, cannot find this plant.", 404);
+      const plantError = new CustomError("Sorry, cannot find this plant.", 404);
 
       next(plantError);
     }
