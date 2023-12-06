@@ -1,4 +1,5 @@
 import { type Types } from "mongoose";
+import { type Request } from "express";
 
 export interface PlantData {
   name: string;
@@ -14,3 +15,13 @@ export interface PlantData {
 export interface PlantStructure extends PlantData {
   _id: Types.ObjectId;
 }
+
+export interface CustomRequest extends Request {
+  body: PlantData;
+}
+
+export type PlantRequestWithoutId = Request<
+  Record<string, unknown>,
+  Record<string, unknown>,
+  PlantData
+>;
