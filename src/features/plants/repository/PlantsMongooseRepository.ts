@@ -1,11 +1,11 @@
-import { type PlantStructure } from "../types";
+import { type PlantData, type PlantStructure } from "../types";
 import Plant from "../model/Plant.js";
 import { type PlantsRepository } from "./types";
 import CustomError from "../../../server/CustomError/CustomError.js";
 
 class PlantsMongooseRepository implements PlantsRepository {
   public async getPlants(): Promise<PlantStructure[]> {
-    const plants = await Plant.find().limit(10);
+    const plants = await Plant.find().limit(10).sort({ _id: -1 });
 
     return plants;
   }
@@ -22,6 +22,19 @@ class PlantsMongooseRepository implements PlantsRepository {
     }
 
     return plant;
+  }
+
+  public async addPlant(plant: PlantData): Promise<PlantStructure> {
+    try {
+      const newPlant = await Plant.create(plant);
+
+      return newPlant;
+    } catch (error) {
+      throw new CustomError(
+        "Error: Could not add plant. Please try again.",
+        400,
+      );
+    }
   }
 }
 
