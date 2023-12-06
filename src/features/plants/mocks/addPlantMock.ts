@@ -1,6 +1,6 @@
-import { type PlantData } from "../types";
+import { type PlantStructureWithoutId } from "../types";
 
-export const addPlantMock: PlantData = {
+export const addPlantMock: PlantStructureWithoutId = {
   name: "Stinging Nettle",
   scientificName: "Urtica dioica",
   use: "Medicinal/Culinary",

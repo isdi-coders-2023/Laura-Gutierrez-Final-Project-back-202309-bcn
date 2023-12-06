@@ -1,7 +1,7 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { type PlantsRepository } from "../repository/types";
 import CustomError from "../../../server/CustomError/CustomError.js";
-import { type CustomRequest, type PlantData } from "../types";
+import { type CustomRequest } from "../types";
 class PlantsController {
   constructor(private readonly plantsRepository: PlantsRepository) {}
 

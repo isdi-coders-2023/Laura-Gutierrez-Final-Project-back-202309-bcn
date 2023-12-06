@@ -1,4 +1,4 @@
-import { type PlantData, type PlantStructure } from "../types";
+import { type PlantStructureWithoutId, type PlantStructure } from "../types";
 import Plant from "../model/Plant.js";
 import { type PlantsRepository } from "./types";
 import CustomError from "../../../server/CustomError/CustomError.js";
@@ -24,7 +24,9 @@ class PlantsMongooseRepository implements PlantsRepository {
     return plant;
   }
 
-  public async addPlant(plant: PlantData): Promise<PlantStructure> {
+  public async addPlant(
+    plant: PlantStructureWithoutId,
+  ): Promise<PlantStructure> {
     try {
       const newPlant = await Plant.create(plant);
 

@@ -1,7 +1,7 @@
 import { type Types } from "mongoose";
 import { type Request } from "express";
 
-export interface PlantData {
+export interface PlantStructureWithoutId {
   name: string;
   scientificName: string;
   use: string;
@@ -12,16 +12,16 @@ export interface PlantData {
   habitat: string;
 }
 
-export interface PlantStructure extends PlantData {
+export interface PlantStructure extends PlantStructureWithoutId {
   _id: Types.ObjectId;
 }
 
 export interface CustomRequest extends Request {
-  body: PlantData;
+  body: PlantStructureWithoutId;
 }
 
 export type PlantRequestWithoutId = Request<
   Record<string, unknown>,
   Record<string, unknown>,
-  PlantData
+  PlantStructureWithoutId
 >;
