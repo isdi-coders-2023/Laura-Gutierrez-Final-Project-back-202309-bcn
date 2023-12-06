@@ -16,6 +16,7 @@ describe("Given a getPlantsById controller", () => {
     getPlants: jest.fn().mockResolvedValue(plants),
     deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockResolvedValue(plants[0]),
+    addPlant: jest.fn(),
   };
 
   const plantsController = new PlantsController(plantsRepository);

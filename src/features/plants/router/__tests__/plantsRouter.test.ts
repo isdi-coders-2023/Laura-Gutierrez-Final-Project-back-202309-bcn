@@ -1,7 +1,7 @@
 import request from "supertest";
-import app from "../../../server/app";
-import { plantsMock } from "../mocks/plantsMock";
-import { type PlantStructure } from "../types";
+import app from "../../../../server/app";
+import { plantsMock } from "../../mocks/plantsMock";
+import { type PlantStructure } from "../../types";
 
 describe("Given a GET /plants endpoint", () => {
   describe("When it recives a request", () => {

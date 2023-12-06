@@ -10,14 +10,18 @@ describe("Given a PlantsController deletePlant method", () => {
   const plantsRepository: Pick<PlantsRepository, "deletePlant"> = {
     deletePlant: jest.fn().mockReturnValue({}),
   };
+
   const req: Pick<Request, "params"> = {
     params: { _id: "6566158cd11a3f8f1075c7a1" },
   };
+
   const res: Pick<Response, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn().mockReturnValue({}),
   };
+
   const next: NextFunction = jest.fn();
+
   describe("When it receives a response", () => {
     test("Then it shoul call its method status with 200", async () => {
       const expectedStatusCode = 200;
