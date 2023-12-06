@@ -10,5 +10,6 @@ const plantsController = new PlantsController(plantsRepository);
 plantsRouter.get("/", plantsController.getPlants);
 plantsRouter.get("/:id", plantsController.getPlantsById);
 plantsRouter.delete("/:id", plantsController.deletePlant);
+plantsRouter.post("/add", plantsController.addPlant);
 
 export default plantsRouter;
