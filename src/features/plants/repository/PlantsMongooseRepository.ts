@@ -1,7 +1,7 @@
 import { type PlantStructure } from "../types";
 import Plant from "../model/Plant.js";
 import { type PlantsRepository } from "./types";
-import CustomError from "../../../server/CustomError/CustomError";
+import CustomError from "../../../server/CustomError/CustomError.js";
 
 class PlantsMongooseRepository implements PlantsRepository {
   public async getPlants(): Promise<PlantStructure[]> {
