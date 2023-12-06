@@ -1,6 +1,7 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { type PlantsRepository } from "../repository/types";
 import CustomError from "../../../server/CustomError/CustomError.js";
+import { type CustomRequest, type PlantData } from "../types";
 class PlantsController {
   constructor(private readonly plantsRepository: PlantsRepository) {}
 
@@ -39,6 +40,23 @@ class PlantsController {
       const plantError = new CustomError("Sorry, cannot find this plant.", 404);
 
       next(plantError);
+    }
+  };
+
+  public addPlant = async (
+    req: CustomRequest,
+    res: Response,
+    next: NextFunction,
+  ) => {
+    const newPlant = req.body;
+    try {
+      const addedPlant = await this.plantsRepository.addPlant(newPlant);
+
+      res
+        .status(201)
+        .json({ message: "Plant added successfully!", addedPlant });
+    } catch (error) {
+      next(error);
     }
   };
 }
