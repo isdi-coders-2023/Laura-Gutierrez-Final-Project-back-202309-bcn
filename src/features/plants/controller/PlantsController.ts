@@ -10,14 +10,10 @@ class PlantsController {
     res.status(200).json({ plants });
   };
 
-  deletePlant = async (
-    req: Request<{ plantId: string }>,
-    res: Response,
-    next: NextFunction,
-  ): Promise<void> => {
-    const { plantId } = req.params;
+  deletePlant = async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
     try {
-      await this.plantsRepository.deletePlant(plantId);
+      await this.plantsRepository.deletePlant(id);
 
       res.status(200).json({});
     } catch {

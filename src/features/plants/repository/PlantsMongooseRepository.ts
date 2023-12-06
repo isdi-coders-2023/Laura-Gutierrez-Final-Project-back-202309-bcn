@@ -10,14 +10,8 @@ class PlantsMongooseRepository implements PlantsRepository {
     return plants;
   }
 
-  public async deletePlant(plantId: string): Promise<void> {
-    try {
-      await Plant.findByIdAndDelete(plantId);
-    } catch (error) {
-      throw new Error(
-        "There's been an error deleting this plant." + (error as Error).message,
-      );
-    }
+  public async deletePlant(id: string): Promise<void> {
+    await Plant.findByIdAndDelete(id);
   }
 
   public async getPlantsById(id: string): Promise<PlantStructure> {
