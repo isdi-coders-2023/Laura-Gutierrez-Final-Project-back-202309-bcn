@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import { type PlantStructure } from "../types";
 
 export const plantsMockById: PlantStructure[] = [
