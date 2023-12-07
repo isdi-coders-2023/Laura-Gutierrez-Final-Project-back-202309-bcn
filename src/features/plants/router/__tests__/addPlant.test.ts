@@ -1,7 +1,6 @@
 import request from "supertest";
 import app from "../../../../server/app";
 import "../../../../server/index";
-import { type PlantStructureWithoutId, type PlantStructure } from "../../types";
 import { plantMock } from "../../mocks/plantMock";
 import { server } from "../../../../setupTests";
 

@@ -2,7 +2,6 @@ import type { Request, Response, NextFunction } from "express";
 import PlantsController from "../PlantsController";
 import { type PlantsRepository } from "../../repository/types";
 import type PlantsMongooseRepository from "../../repository/PlantsMongooseRepository";
-import { PlantRequestWithoutId } from "../../types";
 import type CustomError from "../../../../server/CustomError/CustomError";
 
 beforeEach(() => {

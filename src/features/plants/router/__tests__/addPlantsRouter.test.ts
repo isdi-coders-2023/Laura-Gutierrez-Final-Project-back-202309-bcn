@@ -2,11 +2,8 @@ import app from "../../../../server/app";
 import "../../../../server/index";
 import "../../../../setupTests";
 import request from "supertest";
-import { type Request, type Response, type NextFunction } from "express";
+import { type Response, type NextFunction } from "express";
 import { addPlantMock } from "../../mocks/addPlantMock";
-import type PlantsMongooseRepository from "../../repository/PlantsMongooseRepository";
-import type CustomError from "../../../../server/CustomError/CustomError";
-import PlantsController from "../../controller/PlantsController";
 import { type PlantRequestWithoutId } from "../../types";
 import { plantsMock } from "../../mocks/plantsMock";
 
