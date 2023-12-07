@@ -4,6 +4,7 @@ import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
 import { type PlantStructureWithoutId } from "../../types";
 import Plant from "../../model/Plant";
+import CustomError from "../../../../server/CustomError/CustomError";
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -51,6 +52,53 @@ describe("Given a getPlantsById controller", () => {
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
       expect(res.json).toHaveBeenCalledWith(expectedPlant);
+    });
+
+    describe("When it receives a request with ann invalid id on its body, a response and a next function", () => {
+      const plantsRepository: PlantsRepository = {
+        getPlants: jest.fn(),
+        getPlantsById: jest
+          .fn()
+          .mockRejectedValue(
+            new CustomError("Sorry, cannot find this plant", 404),
+          ),
+        deletePlant: jest.fn(),
+        addPlant: jest.fn(),
+      };
+
+      const plantsController = new PlantsController(plantsRepository);
+
+      const wrongId = "4637vz";
+
+      const req: Partial<Request> = {
+        params: { id: wrongId },
+      };
+
+      const res: Pick<Response, "status" | "json"> = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+
+      const next = jest.fn();
+
+      test("Then it should call the next function with the error message 'Sorry, cannot find this plant' ", async () => {
+        const expectedError = new CustomError(
+          "Sorry, cannot find this plant.",
+          404,
+        );
+
+        Plant.findById = jest
+          .fn()
+          .mockReturnValue(jest.fn().mockRejectedValue(expectedError));
+
+        await plantsController.getPlantsById(
+          req as Request<{ id: string }>,
+          res as Response,
+          next as NextFunction,
+        );
+
+        expect(next).toHaveBeenCalledWith(expectedError);
+      });
     });
   });
 });
