@@ -2,7 +2,7 @@ import { type NextFunction, type Request, type Response } from "express";
 import { plantsMock } from "../../mocks/plantsMock";
 import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
-import { type PlantData } from "../../types";
+import { type PlantStructureWithoutId } from "../../types";
 import Plant from "../../model/Plant";
 
 beforeEach(() => {
@@ -10,12 +10,13 @@ beforeEach(() => {
 });
 
 describe("Given a getPlantsById controller", () => {
-  const plants: PlantData[] = plantsMock;
+  const plants: PlantStructureWithoutId[] = plantsMock;
 
   const plantsRepository: PlantsRepository = {
     getPlants: jest.fn().mockResolvedValue(plants),
     deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockResolvedValue(plants[0]),
+    addPlant: jest.fn(),
   };
 
   const plantsController = new PlantsController(plantsRepository);

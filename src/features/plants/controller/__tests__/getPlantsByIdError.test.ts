@@ -2,17 +2,18 @@ import { type NextFunction, type Request, type Response } from "express";
 import { plantsMock } from "../../mocks/plantsMock";
 import Plant from "../../model/Plant";
 import { type PlantsRepository } from "../../repository/types";
-import { type PlantData } from "../../types";
+import { type PlantStructureWithoutId } from "../../types";
 import PlantsController from "../PlantsController";
 import CustomError from "../../../../server/CustomError/CustomError";
 
 describe("Given a getPlantsById controller", () => {
-  const plants: PlantData[] = plantsMock;
+  const plants: PlantStructureWithoutId[] = plantsMock;
 
   const plantsRepository: PlantsRepository = {
     getPlants: jest.fn().mockResolvedValue(plants),
     deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockRejectedValue(new Error("Plant not found")),
+    addPlant: jest.fn(),
   };
 
   const plantsController = new PlantsController(plantsRepository);

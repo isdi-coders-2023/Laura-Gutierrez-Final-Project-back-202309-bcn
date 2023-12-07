@@ -2,19 +2,20 @@ import { type Request, type Response } from "express";
 import { plantsMock } from "../../mocks/plantsMock";
 import { type PlantsRepository } from "../../repository/types";
 import PlantsController from "../PlantsController";
-import { PlantStructure, type PlantData } from "../../types";
+import { type PlantStructureWithoutId } from "../../types";
 
 beforeEach(() => {
   jest.restoreAllMocks();
 });
 
 describe("Given a PlantsController's getPlants method", () => {
-  const plants: PlantData[] = plantsMock;
+  const plants: PlantStructureWithoutId[] = plantsMock;
 
   const plantsRepository: PlantsRepository = {
     getPlants: jest.fn().mockResolvedValue(plants),
     deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockResolvedValue(plants[0]),
+    addPlant: jest.fn(),
   };
 
   const plantsController = new PlantsController(plantsRepository);
