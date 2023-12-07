@@ -1,7 +1,7 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { type PlantsRepository } from "../repository/types";
 import CustomError from "../../../server/CustomError/CustomError.js";
-import { type CustomRequest } from "../types";
+import { type PlantRequestWithoutId, type CustomRequest } from "../types";
 class PlantsController {
   constructor(private readonly plantsRepository: PlantsRepository) {}
 
@@ -44,12 +44,13 @@ class PlantsController {
   };
 
   public addPlant = async (
-    req: CustomRequest,
+    req: PlantRequestWithoutId,
     res: Response,
     next: NextFunction,
   ) => {
-    const newPlant = req.body;
     try {
+      const newPlant = req.body;
+
       const addedPlant = await this.plantsRepository.addPlant(newPlant);
 
       res

@@ -13,7 +13,15 @@ export interface PlantStructureWithoutId {
 }
 
 export interface PlantStructure extends PlantStructureWithoutId {
-  _id: Types.ObjectId;
+  _id: string;
+  name: string;
+  scientificName: string;
+  use: string;
+  properties: string;
+  howToUse: string;
+  imageUrl: string;
+  isPoisonous: boolean;
+  habitat: string;
 }
 
 export interface CustomRequest extends Request {

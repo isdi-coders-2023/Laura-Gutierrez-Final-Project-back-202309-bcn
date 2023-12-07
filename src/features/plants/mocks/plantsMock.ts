@@ -3,7 +3,7 @@ import { type PlantStructure } from "../types";
 
 export const plantsMock: PlantStructure[] = [
   {
-    _id: new Types.ObjectId("6566158cd11a3f8f1075c7a1"),
+    _id: "6566158cd11a3f8f1075c7a1",
     name: "Oregano",
     scientificName: "Origanum vulgare",
     use: "Culinary/Medicinal",
@@ -16,7 +16,7 @@ export const plantsMock: PlantStructure[] = [
     habitat: "Grasslands, bushes, rocky areas.",
   },
   {
-    _id: new Types.ObjectId("6566158cd11a3f8f1075c7a2"),
+    _id: "6566158cd11a3f8f1075c7a2",
     name: "Salvia",
     scientificName: "Salvia Officinalis",
     use: "Medicinal",

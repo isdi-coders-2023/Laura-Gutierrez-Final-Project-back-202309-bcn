@@ -1,26 +1,26 @@
 import request from "supertest";
 import app from "../../../../server/app";
 import "../../../../server/index";
-import { type PlantStructure } from "../../types";
-import { plantsMock } from "../../mocks/plantsMock";
+import { type PlantStructureWithoutId, type PlantStructure } from "../../types";
+import { plantMock } from "../../mocks/plantMock";
 import { server } from "../../../../setupTests";
 
 describe("Given a POST/plants/add endpoint", () => {
   const path = "/plants/add";
 
-  describe("When it receives a request with a new plant Oregano without id", () => {
+  describe("When it receives a request with a new plant Oregano", () => {
     test("Then it should respond with a status code 201 and the new plant Oregano with id", async () => {
       const expectedStatusCode = 201;
-      const expectedName = "Oregano";
+      const expectedMessage = "Plant added successfully!";
 
       const response = await request(app)
         .post(path)
-        .send(plantsMock[0])
+        .send(plantMock)
         .expect(expectedStatusCode);
 
-      const responseBody = response.body as { plant: PlantStructure };
+      const responseBody = response.body as { message: string };
 
-      expect(responseBody.plant).toHaveProperty("name", expectedName);
+      expect(responseBody.message).toStrictEqual(expectedMessage);
     });
   });
 
@@ -35,7 +35,7 @@ describe("Given a POST/plants/add endpoint", () => {
 
       const response = await request(app)
         .post(path)
-        .send(plantsMock[0])
+        .send(plantMock)
         .expect(expectedStatusCode);
 
       const responseBody = response.body as { error: string };
