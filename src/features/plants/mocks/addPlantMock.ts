@@ -9,6 +9,6 @@ export const addPlantMock: PlantStructureWithoutId = {
   howToUse:
     "Steam or cook the leaves and use them in soups, stews, or as a tea",
   imageUrl: "https://i.ibb.co/g38SLQT/c9cae01de808dbde75b56aaa41b759cc.webp",
-  isPoisonous: false,
+  isPoisonous: "false",
   habitat: "Europe, Asia and North America",
 };

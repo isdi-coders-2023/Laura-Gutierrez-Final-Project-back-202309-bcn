@@ -9,7 +9,7 @@ const plantSchema = {
     properties: Joi.string().required(),
     howToUse: Joi.string().required(),
     imageUrl: Joi.string().required(),
-    isPoisonous: Joi.boolean().required(),
+    isPoisonous: Joi.string().required(),
     habitat: Joi.string().required(),
   }),
 };
