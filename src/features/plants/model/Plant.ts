@@ -27,7 +27,7 @@ const plantSchema = new Schema<PlantStructure>({
     required: true,
   },
   isPoisonous: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   habitat: {

@@ -9,6 +9,6 @@ export const plantMock: PlantStructureWithoutId = {
   howToUse:
     "Use it in many savoury dishes as seasoning, also in sauces. You can consume oregano oil in capsules. ",
   imageUrl: "https://www.image.com/fake-one",
-  isPoisonous: false,
+  isPoisonous: "false",
   habitat: "Grasslands, bushes, rocky areas.",
 };
