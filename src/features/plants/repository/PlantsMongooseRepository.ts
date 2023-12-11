@@ -17,11 +17,7 @@ class PlantsMongooseRepository implements PlantsRepository {
   public async getPlantsById(id: string): Promise<PlantStructure> {
     const plant = await Plant.findById(id);
 
-    if (!plant) {
-      throw new CustomError("Sorry, cannot find this plant.", 404);
-    }
-
-    return plant;
+    return plant!;
   }
 
   public async addPlant(
