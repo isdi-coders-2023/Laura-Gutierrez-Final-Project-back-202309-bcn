@@ -34,6 +34,23 @@ class PlantsMongooseRepository implements PlantsRepository {
       );
     }
   }
+
+  public async modifyPlant(
+    id: string,
+    plant: PlantStructure,
+  ): Promise<PlantStructure | undefined> {
+    try {
+      const modifiedPlant = await Plant.findByIdAndUpdate(
+        id,
+        { ...plant },
+        { returnDocument: "after" },
+      );
+
+      return modifiedPlant!;
+    } catch (error) {
+      throw new Error("Error modifying plant" + (error as Error).message);
+    }
+  }
 }
 
 export default PlantsMongooseRepository;

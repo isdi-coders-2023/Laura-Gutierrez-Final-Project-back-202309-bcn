@@ -1,7 +1,7 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { type PlantsRepository } from "../repository/types";
 import CustomError from "../../../server/CustomError/CustomError.js";
-import { type PlantRequestWithoutId } from "../types";
+import { type PlantRequestWithId, type PlantRequestWithoutId } from "../types";
 class PlantsController {
   constructor(private readonly plantsRepository: PlantsRepository) {}
 
@@ -58,6 +58,28 @@ class PlantsController {
         .json({ message: "Plant added successfully!", addedPlant });
     } catch (error) {
       next(error);
+    }
+  };
+
+  modifyPlant = async (
+    req: PlantRequestWithId,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    try {
+      const plant = req.body;
+      const { _id } = req.params;
+
+      const modifiedPlant = await this.plantsRepository.modifyPlant(_id, plant);
+
+      res.status(200).json({ plant: modifiedPlant });
+    } catch (error) {
+      const customError = new CustomError(
+        "Error. Couldn't modify the plant.",
+        400,
+      );
+
+      next(customError);
     }
   };
 }

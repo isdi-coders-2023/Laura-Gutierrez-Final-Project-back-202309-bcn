@@ -32,3 +32,9 @@ export type PlantRequestWithoutId = Request<
   Record<string, unknown>,
   PlantStructureWithoutId
 >;
+
+export type PlantRequestWithId = Request<
+  { _id: string },
+  Record<string, unknown>,
+  PlantStructure
+>;

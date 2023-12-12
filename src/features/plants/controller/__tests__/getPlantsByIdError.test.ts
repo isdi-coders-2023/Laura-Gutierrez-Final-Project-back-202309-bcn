@@ -14,6 +14,7 @@ describe("Given a getPlantsById controller", () => {
     deletePlant: jest.fn(),
     getPlantsById: jest.fn().mockRejectedValue(new Error("Plant not found")),
     addPlant: jest.fn(),
+    modifyPlant: jest.fn(),
   };
 
   const plantsController = new PlantsController(plantsRepository);

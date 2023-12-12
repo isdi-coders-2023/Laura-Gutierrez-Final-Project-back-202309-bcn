@@ -65,6 +65,7 @@ describe("Given a PlantsController deletePlant method", () => {
         getPlants: jest.fn(),
         addPlant: jest.fn(),
         getPlantsById: jest.fn(),
+        modifyPlant: jest.fn(),
       };
 
       const plantsController = new PlantsController(plantsRepository);
