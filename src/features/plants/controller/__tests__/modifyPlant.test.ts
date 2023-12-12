@@ -12,8 +12,8 @@ beforeEach(() => {
 
 describe("Given an PlantsController's modifyPlant method", () => {
   const req: Pick<PlantRequestWithId, "body" | "params"> = {
-    body: plantsMock[0],
-    params: { plantId: "6566158cd11a3f8f1075c7a1" },
+    body: plantsMock[2],
+    params: { _id: "6576e802d2b53ad62f2217a6" },
   };
   const res: Pick<Response, "status" | "json"> = {
     status: jest.fn().mockReturnThis(),
@@ -21,7 +21,7 @@ describe("Given an PlantsController's modifyPlant method", () => {
   };
   const next: NextFunction = jest.fn();
 
-  describe("When it receives a request with a plant id '6566158cd11a3f8f1075c7a1', an 'Oregano' plant and a response", () => {
+  describe("When it receives a request with a plant id '6576e802d2b53ad62f2217a6', an 'Oregano' plant and a response", () => {
     const plantRepository: Pick<PlantsMongooseRepository, "modifyPlant"> = {
       modifyPlant: jest.fn().mockResolvedValue(modifiedPlantMock),
     };

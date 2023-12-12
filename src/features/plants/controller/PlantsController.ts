@@ -68,12 +68,9 @@ class PlantsController {
   ): Promise<void> => {
     try {
       const plant = req.body;
-      const { plantId } = req.params;
+      const { _id } = req.params;
 
-      const modifiedPlant = await this.plantsRepository.modifyPlant(
-        plantId,
-        plant,
-      );
+      const modifiedPlant = await this.plantsRepository.modifyPlant(_id, plant);
 
       res.status(200).json({ plant: modifiedPlant });
     } catch (error) {
