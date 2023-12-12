@@ -12,5 +12,6 @@ plantsRouter.get("/", plantsController.getPlants);
 plantsRouter.get("/:id", plantsController.getPlantsById);
 plantsRouter.delete("/:id", plantsController.deletePlant);
 plantsRouter.post("/add", plantValidation, plantsController.addPlant);
+plantsRouter.patch("/:id", plantsController.modifyPlant);
 
 export default plantsRouter;
